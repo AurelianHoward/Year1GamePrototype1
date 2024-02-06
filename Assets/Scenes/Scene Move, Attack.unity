@@ -1173,7 +1173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3512207d01e639a47885ad3c810e3b21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 0}
+  playerTransform: {fileID: 857181812}
   rawDamage: 10
   delayTimer: 2
 --- !u!4 &1226802161
