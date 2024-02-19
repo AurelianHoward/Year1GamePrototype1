@@ -1,29 +1,51 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Collider))]
 public class Item : MonoBehaviour
 {
-    public GameObject itemPrefab;
-    public Sprite icon;
+    [SerializeField]
+    GameObject itemPrefab;
+    [SerializeField]
+    Sprite icon;
 
-    public string itemName;
+    [SerializeField]
+    string itemName;
+    [SerializeField]
     [TextArea(4, 16)]
-    public string description;
+    string description;
 
-    public float weight = 0;
-    public int quantity = 1;
-    public int maxStackableQuantity = 1; // for bundles of items, such as arrows or coins
+    [SerializeField]
+    float weight = 0;
+    [SerializeField]
+    int quantity = 1;
+    [SerializeField]
+    int maxStackableQuantity = 1; // for bundles of items, such as arrows or coins
 
-    public bool isStorable = false; // if false, item will be used when picked up
-    public bool isConsumable = true; // if true, item will be destroyed (or quantity reduced) when used
+    [SerializeField]
+    bool isStorable = false; // if false, item will be used on pickup
+    [SerializeField]
+    bool isConsumable = true; // if true, item will be destroyed (or quantity reduced) when used
 
-    void Start()
+    [SerializeField]
+    bool isPickupOnCollision = false;
+
+    private void Start()
     {
-
+        if (isPickupOnCollision)
+        {
+            gameObject.GetComponent<Collider>().isTrigger = true;
+        }
     }
 
-    void Update()
+    private void OnTriggerEnter(Collider collider)
     {
-
+        if (isPickupOnCollision)
+        {
+            if (collider.tag == "Player")
+            {
+                Interact();
+            }
+        }
     }
 
     public void Interact()
@@ -44,13 +66,14 @@ public class Item : MonoBehaviour
     {
         Debug.Log("Storing " + transform.name);
 
-        // ToDo
+        // TODO Inventory system
 
         Destroy(gameObject);
     }
 
     void Use()
     {
+        Debug.Log("Using " + transform.name);
         if (isConsumable)
         {
             quantity--;
