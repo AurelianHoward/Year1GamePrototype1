@@ -13,8 +13,12 @@ public class HealthManager : MonoBehaviour
         hitPoints -= rawDamage;
 
         Debug.Log("OUCH: " + hitPoints.ToString());
-
-        if (hitPoints <= 0)
+        
+        if (hitPoints <= 50)
+        {
+            Debug.Log("Oh No Im at Half Health");
+        }
+        else if (hitPoints <= 0)
         {
             Debug.Log("TODO: GAME OVER - YOU DIED");
         }
