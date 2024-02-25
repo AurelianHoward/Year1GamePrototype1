@@ -7,15 +7,18 @@ using UnityEngine.UI;
 public class Trap : MonoBehaviour
 {
     [SerializeField]
-    float rawDamage = 1000f;
+    float rawDamage = 75f;
+    [SerializeField]
+    bool isDeadly = true;
     [SerializeField]
     bool isPickupOnCollision = false;
     [SerializeField]
-    bool isDeadly = true;
+    Transform playerTransform;
 
     // Start is called before the first frame update
     void Start()
     {
+
         if (isPickupOnCollision)
         {
             gameObject.GetComponent<Collider>().isTrigger = true;
@@ -25,8 +28,9 @@ public class Trap : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
+
 
     private void OnTriggerEnter(Collider collider)
     {
@@ -41,18 +45,22 @@ public class Trap : MonoBehaviour
 
     private void TrapActivation()
     {
-
         if (isDeadly == true)
         {
-            SendMessageUpwards("Hit", rawDamage, SendMessageOptions.DontRequireReceiver);
+            DeadlyTrap();
         }
-        else if (isDeadly == false)
-        {
-            rawDamage = -50f;
-            SendMessageUpwards("Hit", rawDamage, SendMessageOptions.DontRequireReceiver);
-            Debug.Log("Yay Health");
-        }
-
-        Destroy(gameObject);
+        //else if(isDeadly == false)
+        //{
+        //    HealthPot();
+        //}
     }
-}
+
+    private void DeadlyTrap()
+    {
+
+            SendMessageUpwards("Hit", rawDamage, SendMessageOptions.DontRequireReceiver);
+            Debug.Log("trap activated");
+
+            Destroy(gameObject);
+        }
+    }

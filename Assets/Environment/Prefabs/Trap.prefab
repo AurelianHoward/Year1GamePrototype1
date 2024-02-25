@@ -10,8 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1930248658630724}
   - component: {fileID: 2049954445239097995}
-  - component: {fileID: 4925229296717635364}
-  - component: {fileID: 5152002869020376310}
   - component: {fileID: 1332498452053466012}
   m_Layer: 0
   m_Name: Trap
@@ -57,41 +55,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4925229296717635364
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4505139341367901943}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 994fc90ea9cd35e499ffe7d7e811c86b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 0}
-  icon: {fileID: 0}
-  itemName: 
-  description: 
-  weight: 0
-  quantity: 1
-  maxStackableQuantity: 1
-  isStorable: 0
-  isConsumable: 0
-  isPickupOnCollision: 1
---- !u!114 &5152002869020376310
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4505139341367901943}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6151692abfe4d540a42949619582491, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitPoints: 100
 --- !u!114 &1332498452053466012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,8 +68,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rawDamage: 75
-  isPickupOnCollision: 1
   isDeadly: 1
+  isPickupOnCollision: 1
 --- !u!1 &8726077873647154510
 GameObject:
   m_ObjectHideFlags: 0
