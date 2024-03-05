@@ -17,6 +17,8 @@ public class Item : MonoBehaviour
     [SerializeField]
     int quantity = 1;
 
+    [SerializeField]
+    int pointValue = 1;
 
     [SerializeField]
     bool isStorable = false; // if false, item will be used on pickup
@@ -62,7 +64,6 @@ public class Item : MonoBehaviour
     void Store()
     {
         Debug.Log("Storing " + transform.name);
-
         // TODO Inventory system
 
         Destroy(gameObject);
@@ -78,6 +79,8 @@ public class Item : MonoBehaviour
             {
                 Destroy(gameObject);
             }
+
+            GameManager.IncrementScore(pointValue);
         }
     }
 }

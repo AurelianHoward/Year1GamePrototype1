@@ -21,16 +21,21 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Confined;
+        GameManager.ResetGame();
+
         characterController = GetComponent<CharacterController>();
         SetCurrentCamera();
     }
 
     void Update()
     {
-        Locomotion();
-        RotateAndLook();
-
-        PerspectiveCheck();
+        if (!MenuController.IsGamePaused)
+        {
+            Locomotion();
+            RotateAndLook();
+            PerspectiveCheck();
+        }
     }
 
     void SetCurrentCamera()

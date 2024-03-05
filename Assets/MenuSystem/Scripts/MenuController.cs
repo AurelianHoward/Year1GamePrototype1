@@ -26,6 +26,7 @@ public class MenuController : MonoBehaviour
 
     [SerializeField] bool IsPauseMenuAvailable = false;
     [HideInInspector] public static bool IsGamePaused = false;
+    [SerializeField] GameObject highScoresPanel;
 
     void Update()
     {
@@ -81,5 +82,15 @@ public class MenuController : MonoBehaviour
         Resume();
         Cursor.visible = true;
         SceneManager.LoadScene(mainMenuScene);
+    }
+    public void HighScoreMenuClose()
+    {
+        highScoresPanel.SetActive(false);
+    }
+
+    public void HighScoreMenuOpen()
+    {
+        highScoresPanel.GetComponent<HighScoreSystem>().UpdateHighScoreUI();
+        highScoresPanel.SetActive(true);
     }
 }

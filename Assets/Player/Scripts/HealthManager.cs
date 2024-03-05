@@ -30,7 +30,7 @@ public class HealthManager : MonoBehaviour
 
         if (CurrentHealth <= 0)
         {
-            Debug.Log("TODO: GAME OVER - YOU DIED");
+            OnDeath();
         }
     }
 
@@ -57,5 +57,10 @@ public class HealthManager : MonoBehaviour
         {
             Debug.Log("TODO: GAME OVER - YOU DIED");
         }
+    }
+    void OnDeath()
+    {
+        Debug.Log("TODO: GAME OVER - YOU DIED");
+        GameManager.Instance.GameOver();
     }
 }
